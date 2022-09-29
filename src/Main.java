@@ -4,31 +4,39 @@ public class Main {
     {
         Scanner in = new Scanner(System.in);
 
-        double length;
-        double width;
+        double length=0;
+        double width=0;
         double diagonal;
         double area;
         double perimeter;
+        String trash="";
 
         System.out.println("Please enter the length and the width of the rectangle: ");
 
-        if(in.hasNextDouble())
-        {
+        if(in.hasNextDouble()) {
             length = in.nextDouble();
-            width = in.nextDouble();
             in.nextLine();
 
-            perimeter = (length + width)*2;
-            area = length * width;
-            diagonal = Math.sqrt(length*length + width*width);
+            if (in.hasNextDouble()) {
+                width = in.nextDouble();
+                in.nextLine();
 
-            System.out.println("The area is: " + area);
-            System.out.println("The perimeter is: " + perimeter);
-            System.out.println("The diagonal is: " + diagonal);
+                perimeter = (length + width) * 2;
+                area = length * width;
+                diagonal = Math.sqrt(length * length + width * width);
+
+                System.out.println("The area is: " + area);
+                System.out.println("The perimeter is: " + perimeter);
+                System.out.println("The diagonal is: " + diagonal);
+            } else {
+                trash = in.nextLine();
+                System.out.println(trash + " is an invalid input");
+            }
         }
         else
-        {
-            System.out.println("Enter a valid input");
+            {
+                trash = in.nextLine();
+                System.out.println(trash + " is an invalid input");
+            }
         }
     }
-}
